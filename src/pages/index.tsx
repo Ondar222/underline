@@ -1,11 +1,19 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import Filter from '@/components/Filter'
+import Header from '@/components/Header'
+import { Button, Col, Layout, List, Row } from 'antd'
+import Map from '@/components/Map'
+import { useEffect, useLayoutEffect } from 'react'
+import warehousesSlice from "@/store/warehouses.slice"
+import { observer } from 'mobx-react-lite'
+import 'leaflet/dist/leaflet.css'
+import Calculator from '@/components/Calculator'
 
-const inter = Inter({ subsets: ['latin'] })
+export default observer(function Home() {
 
-export default function Home() {
+  useEffect(() => {
+  }, [])
+
   return (
     <>
       <Head>
@@ -14,110 +22,58 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>src/pages/index.tsx</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
-        </div>
+      <Layout >
+        <Header />
 
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
-          </div>
-        </div>
+        <Row gutter={[24, 0]}>
+          <Col span={16}>
+            <Map />
+          </Col>
+          <Col span={8} order={2}>
+            <Filter />
+          </Col>
+        </Row>
 
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
+        <List
+          itemLayout="horizontal"
+          dataSource={warehousesSlice.filteredWarehouses}
+          renderItem={(item, index) => (
+            <List.Item key={item.id}>
+              <List.Item.Meta title={item.title} description={<ListItemDescription address={item.address} contacts={item.contacts} />} />
+            </List.Item>
+          )}
+        />
 
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+        <Calculator />
+      </Layout>
     </>
   )
+})
+
+
+const ListItemDescription = ({ address, contacts }: any) => {
+  return (
+    <Layout style={{ width: '100%', display: 'flex', flexDirection: 'row', gap: '30px', justifyContent: 'space-between' }}>
+      <Row style={{ width: '100%' }} wrap={true} align="middle" justify="space-between">
+        <Col span={8}>
+          {address.region.type + " "}
+          {address.region.name + ", "}
+          {address.locality.type + " "}
+          {address.locality.name + ", "}
+          {address.street.type + " "}
+          {address.street.name + ", "}
+          {"дом " + address.street.number}
+        </Col>
+        <Col span={6}>
+          {contacts.phones[0].phone}
+          {contacts.emails[0].email}
+        </Col>
+        <Col span={2}>
+          <Button type='primary'>Перейти</Button>
+        </Col>
+      </Row>
+    </Layout>
+  )
+
+
 }
