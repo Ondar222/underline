@@ -17,8 +17,8 @@ const Map = observer(() => {
     doubleClickZoom={false}
     attributionControl={false}
     dragging={false}
-    className="min-h-[620px]"
-    style={{ height: '400px', minWidth: '400px' }}>
+    className="max-h-[450px]"
+    style={{ height: '450px', minWidth: '400px' }}>
     {
       polygons.map((item: any) => {
         return <GeoJSON key={item.id} data={item}

@@ -22,14 +22,14 @@ export default observer(function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout >
+      <Layout>
         <Header />
 
-        <Row gutter={[24, 0]}>
-          <Col span={16}>
+        <Row gutter={[24, 0]} className="pt-10">
+          <Col span={15}>
             <Map />
           </Col>
-          <Col span={8} order={2}>
+          <Col span={9} order={2}>
             <Filter />
           </Col>
         </Row>
