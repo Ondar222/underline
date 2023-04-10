@@ -10,5 +10,6 @@ export interface IContacts {
   contacts: {
     phones: [IPhone];
     emails: [IEmail];
+    asd: string;
   };
 }

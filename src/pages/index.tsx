@@ -1,18 +1,16 @@
-import Head from 'next/head'
-import Filter from '@/components/Filter'
-import Header from '@/components/Header'
-import { Button, Col, Layout, List, Row } from 'antd'
-import Map from '@/components/Map'
-import { useEffect, useLayoutEffect } from 'react'
-import warehousesSlice from "@/store/warehouses.slice"
-import { observer } from 'mobx-react-lite'
-import 'leaflet/dist/leaflet.css'
-import Calculator from '@/components/Calculator'
+import Head from "next/head";
+import Filter from "@/components/Filter";
+import Header from "@/components/Header";
+import { Button, Col, Image, Layout, List, Row } from "antd";
+import Map from "@/components/Map";
+import { useEffect, useLayoutEffect } from "react";
+import warehousesSlice from "@/store/warehouses.slice";
+import { observer } from "mobx-react-lite";
+import "leaflet/dist/leaflet.css";
+// import Calculator from "@/components/Calculator";
 
 export default observer(function Home() {
-
-  useEffect(() => {
-  }, [])
+  useEffect(() => {}, []);
 
   return (
     <>
@@ -39,22 +37,105 @@ export default observer(function Home() {
           dataSource={warehousesSlice.filteredWarehouses}
           renderItem={(item, index) => (
             <List.Item key={item.id}>
-              <List.Item.Meta title={item.title} description={<ListItemDescription address={item.address} contacts={item.contacts} />} />
+              <List.Item.Meta
+                title={item.title}
+                description={
+                  <ListItemDescription
+                    address={item.address}
+                    contacts={item.contacts}
+                  />
+                }
+              />
             </List.Item>
           )}
         />
 
-        <Calculator />
+        {/* <Calculator /> */}
+
+        <Row>
+          <Col span={16} className="info__calculate">
+            <div className="header__name__calculate">
+              <h1 className="heading__calc">
+                Воспользуйтесь онлайн калькулятором, чтобы узнать стоимость угля
+                в вашем районе
+              </h1>
+              <p className="paraghrpaph__calculate">
+                Калькулятор поможет рассчитать стоимость угля с учетом доставки
+              </p>
+            </div>
+            <Button className="button">Рассчитать</Button>
+          </Col>
+          <Col span={7} className="coal">
+            <div
+              className="goal__images"
+              style={{
+                position: "relative",
+                width: "100%",
+                height: "100%",
+                marginLeft: "10em",
+              }}
+            >
+              <img
+                src="/Rectangle_9.png"
+                alt="В Туве бесплатным углем обеспечат более 3200 семей"
+                style={{ width: "80%", height: "100%" }}
+              />
+              <div style={{ position: "absolute", bottom: 0 }}>
+                <h1 style={{display: "block", flexDirection: "row", color: "white", fontWeight: "bold", position: "relative", width: '85%', padding: "0px 20px", cursor: "default"}}>
+                  В Туве бесплатным углем обеспечат более 320 семей
+                  </h1>
+               <p style={{position: "relative", display: "block", color: "white", padding: "20px 20px", cursor: "default"}}>
+               5 марта 2023, 17:17
+               </p>
+              </div>
+            </div>
+          </Col>
+        </Row>
+        <Row style={{ marginTop: "20px" }}>
+          <Col span={6}>
+            <img
+              src="/Rectangle_10.png"
+              alt=""
+              style={{ width: "85%", height: "70%" }}
+            />
+          </Col>
+          <Col span={6}>
+            <img
+              src="/Rectangle_12.png"
+              alt=""
+              style={{ width: "85%", height: "70%" }}
+            />
+          </Col>
+          <Col span={12}>
+            <img
+              src="/Rectangle_11.png"
+              alt=""
+              style={{ width: "100%", height: "70%", float: "right" }}
+            />
+          </Col>
+        </Row>
       </Layout>
     </>
-  )
-})
-
+  );
+});
 
 const ListItemDescription = ({ address, contacts }: any) => {
   return (
-    <Layout style={{ width: '100%', display: 'flex', flexDirection: 'row', gap: '30px', justifyContent: 'space-between' }}>
-      <Row style={{ width: '100%' }} wrap={true} align="middle" justify="space-between">
+    <Layout
+      style={{
+        width: "100%",
+        display: "flex",
+        flexDirection: "row",
+        gap: "30px",
+        justifyContent: "space-between",
+      }}
+    >
+      <Row
+        style={{ width: "100%" }}
+        wrap={true}
+        align="middle"
+        justify="space-between"
+      >
         <Col span={8}>
           {address.region.type + " "}
           {address.region.name + ", "}
@@ -69,11 +150,9 @@ const ListItemDescription = ({ address, contacts }: any) => {
           {contacts.emails[0].email}
         </Col>
         <Col span={2}>
-          <Button type='primary'>Перейти</Button>
+          <Button type="primary">Перейти</Button>
         </Col>
       </Row>
     </Layout>
-  )
-
-
-}
+  );
+};

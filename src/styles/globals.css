@@ -27,6 +27,7 @@
 
 body {
   background-color: #e9e4e4;
+  overflow-y: scroll;
 }
 
 .filter {
