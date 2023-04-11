@@ -1,0 +1,22 @@
+.container__block{
+  
+}
+
+.post__card__img{
+ width: 100%;
+
+}
+
+.heading__card{
+  width: 100%;
+  cursor: pointer;
+}
+.heading__card:hover{
+  color: red;
+}
+
+.date__card{
+  display: block;
+  
+  cursor: pointer;
+}

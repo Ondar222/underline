@@ -68,23 +68,16 @@ export default observer(function Home() {
           <Col span={7} className="coal">
             <div
               className="goal__images"
-              style={{
-                position: "relative",
-                width: "100%",
-                height: "100%",
-                marginLeft: "10em",
-              }}
             >
-              <img
+              <img className="photo__rectangle_9"
                 src="/Rectangle_9.png"
-                alt="В Туве бесплатным углем обеспечат более 3200 семей"
-                style={{ width: "80%", height: "100%" }}
+                alt=""
               />
               <div style={{ position: "absolute", bottom: 0 }}>
-                <h1 style={{display: "block", flexDirection: "row", color: "white", fontWeight: "bold", position: "relative", width: '85%', padding: "0px 20px", cursor: "default"}}>
+                <h1 className="heading__rectangle">
                   В Туве бесплатным углем обеспечат более 320 семей
                   </h1>
-               <p style={{position: "relative", display: "block", color: "white", padding: "20px 20px", cursor: "default"}}>
+               <p className="paragrhaph__rectangle">
                5 марта 2023, 17:17
                </p>
               </div>
@@ -93,24 +86,22 @@ export default observer(function Home() {
         </Row>
         <Row style={{ marginTop: "20px" }}>
           <Col span={6}>
-            <img
+            <img className="Rectangle_10"
               src="/Rectangle_10.png"
               alt=""
-              style={{ width: "85%", height: "70%" }}
+
             />
           </Col>
           <Col span={6}>
-            <img
+            <img className="Rectangle_12"
               src="/Rectangle_12.png"
               alt=""
-              style={{ width: "85%", height: "70%" }}
             />
           </Col>
           <Col span={12}>
-            <img
+            <img className="Rectangle_11"
               src="/Rectangle_11.png"
               alt=""
-              style={{ width: "100%", height: "70%", float: "right" }}
             />
           </Col>
         </Row>

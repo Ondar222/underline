@@ -1,0 +1,8 @@
+.container__news {
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 70px;
+  padding: 48px 58px;
+}
