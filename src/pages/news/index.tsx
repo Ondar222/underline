@@ -1,7 +1,7 @@
 import PostCard from "@/components/Post/Card";
-import MainLayout from "@/layouts";
-import { Col, Row, Space } from "antd";
+import { Layout } from "antd";
 import { observer } from "mobx-react-lite";
+import MainLayout from "@/layouts";
 
 const News = observer(() => {
   return (

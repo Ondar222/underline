@@ -1,0 +1,114 @@
+.first__column {
+  width: 100%;
+}
+
+.first__card {
+  width: 100%;
+  height: 351px;
+  padding: 20px 20px;
+  margin: 20px 0px;
+}
+
+.title__ipcard {
+  width: 40%;
+}
+
+.heading__ipcard {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.first__line {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 10px 0px;
+}
+
+.second__line {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 10px 0px;
+}
+
+.third__line {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 10px 0px;
+}
+
+.second__card {
+  width: 100%;
+  height: 280px;
+}
+
+.third__card {
+  width: 50%;
+  height: 650px;
+  padding: 20px 0px;
+}
+
+.second__column {
+  margin: 20px 0px;
+}
+
+.heading__calculator__card {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 0.15px;
+}
+
+.button__container__card {
+  width: 100%;
+}
+.paragraph__calculate__name {
+  padding: 10px 0px;
+  font-style: normal;
+  font-size: 16px;
+}
+
+.button__card__calcul {
+  width: 80%;
+  height: 30px;
+  text-align: left;
+  padding-left: 1em;
+  border: solid;
+}
+
+.button__container__calc {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  padding: 20px 0px;
+  gap: 20px;
+}
+
+.button__clear {
+  width: 30%;
+  height: 50px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000000;
+  background: #E9E4E4;
+}
+
+.button__calculate {
+  width: 30%;
+  height: 50px;
+  font-weight: 400;
+  font-size: 16px;
+  color:  #FFFFFF;
+  background: #C90000;;
+}
+
+.footer__container__paragraph{
+  width: 100%;
+}
+
+.ul__footer__paragraph{
+  list-style-type: disc;
+  font-size: 14px;
+  font-weight: 400;
+}

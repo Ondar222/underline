@@ -1,9 +1,10 @@
 import Head from "next/head";
 import Filter from "@/components/Filter";
 import Header from "@/components/Header";
-import { Button, Col, Image, Layout, List, Row } from "antd";
+import PageFooter from "@/components/Footer";
+import { Button, Col, Layout, List, Row } from "antd";
 import Map from "@/components/Map";
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect } from "react";
 import warehousesSlice from "@/store/warehouses.slice";
 import { observer } from "mobx-react-lite";
 import "leaflet/dist/leaflet.css";
@@ -20,8 +21,8 @@ export default observer(function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
         <Header />
+      <Layout>
 
         <Row gutter={[24, 0]} className="pt-10">
           <Col span={15}>
@@ -49,8 +50,6 @@ export default observer(function Home() {
             </List.Item>
           )}
         />
-
-        {/* <Calculator /> */}
 
         <Row>
           <Col span={16} className="info__calculate">
@@ -106,11 +105,12 @@ export default observer(function Home() {
           </Col>
         </Row>
       </Layout>
+      <PageFooter />
     </>
   );
 });
 
-const ListItemDescription = ({ address, contacts }: any) => {
+export const ListItemDescription = ({ address, contacts }: any) => {
   return (
     <Layout
       style={{

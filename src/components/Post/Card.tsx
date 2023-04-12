@@ -5,7 +5,7 @@ const PostCard = () => {
     <div className="post__card">
       <Card className="container__block">
         <div className="post__card__img">
-          <Image  src="/favicon.ico"/>
+          <Image style={{background: "none"}}  src="/Rectangle_14.png"/>
         </div>
         <Typography.Title className="heading__card" level={4}>
               В Туве бесплатным углем обеспечат более 3200 семей          

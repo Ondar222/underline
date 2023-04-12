@@ -1,6 +1,7 @@
 import { Avatar, Col, Layout, Menu, Row, Typography } from "antd";
 import { useRouter } from "next/router";
 import { useState } from "react";
+
 const items = [
   {
     label: "Главная",
@@ -15,6 +16,7 @@ const items = [
     key: "/about",
   },
 ];
+
 const MainHeader = () => {
   const [current, setCurrent] = useState("main");
   const router = useRouter();

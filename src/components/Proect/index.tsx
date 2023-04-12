@@ -7,7 +7,7 @@ const Proect = () => {
       <div className="block__bg">
 
       <div className="container__proect">
-        <img className="image__proect" src="/Rectangle_12.png" alt="" />
+        <img className="image__proect" src="/Rectangle_15.png" alt="" />
         <div className="block__paragraph__proect">
           <p>
             Центр управления регионом Республики Тыва (далее-ЦУР РТ) сообщает,
