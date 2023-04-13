@@ -2,7 +2,7 @@ import { Card, Space, Select, Layout} from "antd";
 
 const IpCard = () => {
   return (
-    <Layout>
+    <>
       <Space direction="vertical" size={16} style={{ position: "relative", display: "flex", flexDirection: "row" }}>
         <div className="first__column">
 
@@ -104,7 +104,7 @@ const IpCard = () => {
           </Card>
         </div>
       </Space>
-    </Layout>
+    </>
   );
 };
 

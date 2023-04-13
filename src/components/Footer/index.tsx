@@ -1,7 +1,6 @@
-import { Footer } from "antd/es/layout/layout";
-import Layout from "antd/es/layout/layout";
+import { Layout } from "antd";
 
-const PageFooter = () => {
+const Footer = () => {
   return (
     <footer className="footer">
       <Layout>
@@ -27,4 +26,4 @@ const PageFooter = () => {
   );
 };
 
-export default PageFooter;
+export default Footer;

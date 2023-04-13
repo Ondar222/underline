@@ -5,7 +5,6 @@ import Map from "@/components/Map";
 import warehousesSlice from "@/store/warehouses.slice";
 import { observer } from "mobx-react-lite";
 import "leaflet/dist/leaflet.css";
-// import Calculator from "@/components/Calculator";
 
 export default observer(function Home() {
   return (
@@ -16,7 +15,7 @@ export default observer(function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
+      <div>
         <Row gutter={[24, 0]} className="pt-10">
           <Col span={15}>
             <Map />
@@ -97,14 +96,14 @@ export default observer(function Home() {
             />
           </Col>
         </Row>
-      </Layout>
+      </div>
     </>
   );
 });
 
 export const ListItemDescription = ({ address, contacts }: any) => {
   return (
-    <Layout
+    <div
       style={{
         width: "100%",
         display: "flex",
@@ -136,6 +135,6 @@ export const ListItemDescription = ({ address, contacts }: any) => {
           <Button type="primary">Перейти</Button>
         </Col>
       </Row>
-    </Layout>
+    </div>
   );
 };
