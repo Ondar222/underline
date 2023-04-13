@@ -1,54 +1,49 @@
-import { Table } from 'antd';
+import { ICoalProduct, ICoalProducts } from "@/models/IProducts";
+import { Col, Row, Table } from "antd";
+import { table } from "console";
+import { useEffect, useState } from "react";
+import { ICalculateTable } from "./interface";
 
 const columns = [
   {
-    title: '',
-    dataIndex: 'name',
+    title: "Сорт угля",
+    dataIndex: "name",
   },
- 
   {
-    title: '',
-    dataIndex: 'address',
+    title: "Наличие",
+    dataIndex: "availability",
+  },
+  {
+    title: "Цена за 1 т (рублей)",
+    dataIndex: "price",
   },
 ];
 
-const data = [
-  {
-    key: '1',
-    name: 'Сорт угля',
-  
-    address: 'Балахтинский',
-  },
-  {
-    key: '2',
-    name: 'Стоимость за 1 тонну ',
- 
-    address: '2 714 ₽',
-  },
-  {
-    key: '3',
-    name: 'Необходимое количество угля  ',
-   
-    address: '3',
-  },
-  {
-    key: '4',
-    name: 'Доставка  ',
-   
-    address: '500 ₽',
-  },
-  {
-    key: '5',
-    name: 'ИТОГО',
-  
-    address: '8 642 ₽',
-  },
-];
+const CalculateTable = (data: any) => {
+  const [tableData, setTableData] = useState<any>();
 
-const CalculateTable = () => {
-  return <>
-    <Table columns={columns} dataSource={data} pagination={false} size="middle"/>
-  </>
+  useEffect(() => {
+    let arr: any = [];
+    data.coal_products.forEach((item: ICoalProduct) => {
+      let avail = item.availability ? "В наличии" : "отсутствует";
+      let obj = {
+        name: item.name,
+        availability: avail,
+        price: item.price,
+      };
+      arr.push(obj);
+    });
+    setTableData(arr);
+  }, []);
+
+  return (
+    <Table
+      columns={columns}
+      dataSource={tableData}
+      pagination={false}
+      size="middle"
+    />
+  );
 };
 
 export default CalculateTable;

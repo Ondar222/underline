@@ -47,13 +47,13 @@ body {
   width: 100%;
   display: flex;
   flex-direction: row;
-  gap: 4px;
+  gap: 24px;
 }
 
 .filter__buttons button {
   width: 100%;
   height: 50px;
-
+  border-radius: 0;
   font-weight: 400;
   font-size: 16px;
   text-align: center;
@@ -132,4 +132,26 @@ li.ant-menu-item-selected:hover {
   max-height: 200px;
   background-color: #c90000;
   object-fit: cover;
+}
+
+
+.warehouses__table {
+  margin-top: 30px;
+}
+
+.loading {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.advertising__banner {
+  margin-top: 30px;
+}
+
+.advertising__banner {}
+
+.calculate__banner__button {
+  background-color: #c90000;
 }

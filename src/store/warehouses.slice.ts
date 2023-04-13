@@ -17,7 +17,7 @@ class WarehouseSlice {
 
   constructor() {
     makeAutoObservable(this);
-    // this.getAllWarehouses();
+    this.getAllWarehouses();
   }
 
   setRegion(e: string) {

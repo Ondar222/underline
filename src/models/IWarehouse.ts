@@ -23,3 +23,8 @@ export interface IWarehouseResponse {
   data: IWarehouse[];
   meta: any;
 }
+
+export interface IWarehouseResponseById {
+  data: IWarehouse;
+  meta: any;
+}

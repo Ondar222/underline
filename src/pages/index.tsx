@@ -1,12 +1,35 @@
 import Head from "next/head";
 import Filter from "@/components/Filter";
-import { Button, Col, Layout, List, Row } from "antd";
+import { Button, Col, Layout, List, Row, Table } from "antd";
 import Map from "@/components/Map";
 import warehousesSlice from "@/store/warehouses.slice";
 import { observer } from "mobx-react-lite";
 import "leaflet/dist/leaflet.css";
+import LastPost from "@/components/Post/LastPost";
+import { useLayoutEffect, useState } from "react";
+import WarehousesTable from "@/components/Tables/WarehousesTable";
+import LoadingSpinner from "@/components/LoadingSpinner";
+import AdvertisingBanner from "@/components/AdvertisingBanner";
 
 export default observer(function Home() {
+  const [isFetched, setIsFetched] = useState<boolean>(false);
+
+  async function getData() {
+    setTimeout(() => {
+      warehousesSlice.setFilteredWarehouses(
+        warehousesSlice.region,
+        warehousesSlice.locality,
+        "Каа-Хемский уголь"
+      );
+      setIsFetched(true);
+    }, 50);
+    // await warehousesSlice.getAllWarehouses();
+  }
+  useLayoutEffect(() => {
+    if (isFetched === false) {
+      getData();
+    }
+  }, []);
   return (
     <>
       <Head>
@@ -16,86 +39,28 @@ export default observer(function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <Row gutter={[24, 0]} className="pt-10">
-          <Col span={15}>
-            <Map />
-          </Col>
-          <Col span={9} order={2}>
-            <Filter />
-          </Col>
-        </Row>
+        {isFetched ? (
+          <>
+            <Row gutter={[24, 0]} className="pt-10">
+              <Col span={15}>
+                <Map />
+              </Col>
+              <Col span={9} order={2}>
+                <Filter />
+              </Col>
+            </Row>
 
-        <List
-          itemLayout="horizontal"
-          dataSource={warehousesSlice.filteredWarehouses}
-          renderItem={(item, index) => (
-            <List.Item key={item.id}>
-              <List.Item.Meta
-                title={item.title}
-                description={
-                  <ListItemDescription
-                    address={item.address}
-                    contacts={item.contacts}
-                  />
-                }
+            {warehousesSlice.filteredWarehouses && (
+              <WarehousesTable
+                warehouses={warehousesSlice.filteredWarehouses}
               />
-            </List.Item>
-          )}
-        />
+            )}
 
-        <Row>
-          <Col span={16} className="info__calculate">
-            <div className="header__name__calculate">
-              <h1 className="heading__calc">
-                Воспользуйтесь онлайн калькулятором, чтобы узнать стоимость угля
-                в вашем районе
-              </h1>
-              <p className="paraghrpaph__calculate">
-                Калькулятор поможет рассчитать стоимость угля с учетом доставки
-              </p>
-            </div>
-            <Button className="button">Рассчитать</Button>
-          </Col>
-          <Col span={7} className="coal">
-            <div
-              className="goal__images"
-            >
-              <img className="photo__rectangle_9"
-                src="/Rectangle_9.png"
-                alt=""
-              />
-              <div style={{ position: "absolute", bottom: 0 }}>
-                <h1 className="heading__rectangle">
-                  В Туве бесплатным углем обеспечат более 320 семей
-                  </h1>
-               <p className="paragrhaph__rectangle">
-               5 марта 2023, 17:17
-               </p>
-              </div>
-            </div>
-          </Col>
-        </Row>
-        <Row style={{ marginTop: "20px" }}>
-          <Col span={6}>
-            <img className="Rectangle_10"
-              src="/Rectangle_10.png"
-              alt=""
-
-            />
-          </Col>
-          <Col span={6}>
-            <img className="Rectangle_12"
-              src="/Rectangle_12.png"
-              alt=""
-            />
-          </Col>
-          <Col span={12}>
-            <img className="Rectangle_11"
-              src="/Rectangle_11.png"
-              alt=""
-            />
-          </Col>
-        </Row>
+            <AdvertisingBanner/>
+          </>
+        ) : (
+          <LoadingSpinner/>
+        )}
       </div>
     </>
   );

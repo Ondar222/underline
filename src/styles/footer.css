@@ -27,6 +27,10 @@
   color: #ffff;
 }
 
+.button.red {
+  background-color: #c90000;
+}
+
 .goal__images {
   position: relative;
   width: 100%;
@@ -38,6 +42,7 @@
   width: 87%;
   height: 100%;
 }
+
 .block__rectangle_9 {
   position: "absolute";
   bottom: 0;

@@ -1,4 +1,4 @@
-import Project from "@/components/Proect";
+import Project from "@/components/Project";
 import { Layout } from "antd";
 import { ReactNode } from "react";
 
