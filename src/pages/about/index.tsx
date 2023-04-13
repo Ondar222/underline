@@ -1,6 +1,5 @@
 import Project from "@/components/Proect";
 import { Layout } from "antd";
-import MainLayout from "@/layouts";
 import { ReactNode } from "react";
 
 interface IChildren {
@@ -9,9 +8,9 @@ interface IChildren {
 
 const About = ({ children }: IChildren) => {
   return (
-    <MainLayout>
+    <Layout>
       <Project />
-    </MainLayout>
+    </Layout>
   );
 };
 

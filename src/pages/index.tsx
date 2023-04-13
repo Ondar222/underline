@@ -1,18 +1,13 @@
 import Head from "next/head";
 import Filter from "@/components/Filter";
-import Header from "@/components/Header";
-import PageFooter from "@/components/Footer";
 import { Button, Col, Layout, List, Row } from "antd";
 import Map from "@/components/Map";
-import { useEffect } from "react";
 import warehousesSlice from "@/store/warehouses.slice";
 import { observer } from "mobx-react-lite";
 import "leaflet/dist/leaflet.css";
 // import Calculator from "@/components/Calculator";
 
 export default observer(function Home() {
-  useEffect(() => {}, []);
-
   return (
     <>
       <Head>
@@ -21,9 +16,7 @@ export default observer(function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-        <Header />
       <Layout>
-
         <Row gutter={[24, 0]} className="pt-10">
           <Col span={15}>
             <Map />
@@ -105,7 +98,6 @@ export default observer(function Home() {
           </Col>
         </Row>
       </Layout>
-      <PageFooter />
     </>
   );
 });

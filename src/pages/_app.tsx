@@ -8,8 +8,6 @@ import "@/styles/table.css";
 import "@/styles/calculatorpage.css";
 import "@/styles/pagefooter.css";
 import type { AppProps } from "next/app";
-import MainHeader from "@/components/Header";
-import PageFooter from "@/components/Footer";
 
 export default function App({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />
