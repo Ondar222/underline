@@ -94,7 +94,7 @@ const Filter = observer(() => {
         <div className="filter__buttons">
           <Button className="">Очистить</Button>
           <Button
-            className="bg-red-500"
+            className="button" style={{bottom: "20px"}}
             onClick={() => {
               if (warehousesSlice.region && warehousesSlice.locality && grade) {
                 warehousesSlice.setFilteredWarehouses(

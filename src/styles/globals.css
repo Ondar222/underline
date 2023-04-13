@@ -102,6 +102,11 @@ li.ant-menu-item-selected:hover {
   border-bottom-color: var(--red) !important;
 }
 
+.logo__header{
+  width: 50px;
+  height: 50px;
+}
+
 .post__card .ant-card {
   background: transparent;
 }
