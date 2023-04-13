@@ -1,4 +1,4 @@
-import { MapContainer, GeoJSON, TileLayer } from "react-leaflet"
+import { MapContainer, GeoJSON, TileLayer, Tooltip } from "react-leaflet"
 import polygons from '@/data.json'
 import 'leaflet/dist/leaflet.css'
 import { observer } from "mobx-react-lite"
@@ -23,9 +23,9 @@ const Map = observer(() => {
       polygons.map((item: any) => {
         return <GeoJSON key={item.id} data={item}
           style={{
-            color: "rgb(30 64 175)",
+            color: "rgb(0 0 0)",
             weight: 1,
-            fillColor: "rgb(59 130 246)",
+            fillColor: "rgb(255 255 255)",
             fillOpacity: 1,
           }}
           eventHandlers={{
@@ -34,7 +34,9 @@ const Map = observer(() => {
               warehousesSlice.setSelectedRegionLocalities(item.properties.description)
             }
           }}
-        />
+        >
+          <Tooltip>{item.properties.description}</Tooltip>
+        </GeoJSON>
       })
     }
 

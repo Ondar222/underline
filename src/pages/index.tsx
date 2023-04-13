@@ -22,7 +22,7 @@ export default observer(function Home() {
         "Каа-Хемский уголь"
       );
       setIsFetched(true);
-    }, 50);
+    }, 1000);
     // await warehousesSlice.getAllWarehouses();
   }
   useLayoutEffect(() => {

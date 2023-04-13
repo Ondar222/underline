@@ -9,15 +9,18 @@ const AppSelect = ({
   value,
   defaultValue,
   options,
+  onChange
 }: any) => {
   return (
-    <label>
-      <Typography.Paragraph>{label}</Typography.Paragraph>
+    <label className="app-form">
+      <Typography.Paragraph className="app-form__label">{label}</Typography.Paragraph>
       <Select
         defaultValue={defaultValue}
         value={value}
         placeholder={placeholder}
         options={options}
+        size="large"
+        onChange={onChange}
       ></Select>
     </label>
   );

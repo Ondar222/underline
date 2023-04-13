@@ -1,4 +1,4 @@
-import "@/styles/globals.css";
+import "@/styles/globals.scss";
 import "@/styles/footer.css";
 import "@/styles/postcard.css";
 import "@/styles/news.css";
@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <MainHeader />
-      <Layout>
+      <Layout className="page">
         <Component {...pageProps} />
       </Layout>
       <Footer />

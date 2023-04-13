@@ -41,9 +41,10 @@ const WarehousePage = ({ warehouse }: IPageProps) => {
   return (
     <>
       <Space
-        direction="vertical"
-        size={16}
-        style={{ position: "relative", display: "flex", flexDirection: "row" }}
+        direction="horizontal"
+        size={29}
+        align="start"
+        className="warehouse"
       >
         <div className="first__column">
           <WarehouseCard

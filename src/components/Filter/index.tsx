@@ -2,6 +2,7 @@ import { Button, Layout, Select, Space, Typography } from "antd";
 import { useEffect, useState } from "react";
 import warehousesSlice from "@/store/warehouses.slice";
 import { observer } from "mobx-react-lite";
+import AppSelect from "../Form/Select";
 
 const Filter = observer(() => {
   const [grade, setGrade] = useState<string>("");
@@ -32,14 +33,12 @@ const Filter = observer(() => {
   }, [warehousesSlice.locality]);
 
   return (
-    <Layout className="filter">
-      <Typography.Title>Поиск</Typography.Title>
-
-      <Space direction="vertical" size="large">
-        <div>
-          <Typography.Title level={4}>Выберите район</Typography.Title>
-          <Select
-            size="large"
+    <div className="filter">
+      <Space.Compact direction="vertical" size="large" block={true}>
+        <Typography.Title level={2}>Поиск</Typography.Title>
+        <Space direction="vertical" size={16}>
+          <AppSelect
+            label="Выберите район"
             defaultValue={warehousesSlice.region}
             value={warehousesSlice.region}
             options={warehousesSlice.regions.map(
@@ -53,12 +52,9 @@ const Filter = observer(() => {
               warehousesSlice.setRegion(e);
             }}
           />
-        </div>
-
-        <div>
-          <Typography.Title level={4}>Выберите населенный пункт</Typography.Title>
-          <Select
-            size="large"
+          <AppSelect
+            label="Выберите населенный пункт"
+            defaultValue={warehousesSlice.region}
             value={warehousesSlice.locality || "Кызыл"}
             options={warehousesSlice.selectedRegionLocalities.map(
               (item: any, _index: number) => ({
@@ -71,25 +67,24 @@ const Filter = observer(() => {
               warehousesSlice.setLocality(e);
             }}
           />
-        </div>
 
-        {warehousesSlice.region != undefined &&
-          warehousesSlice.locality != undefined && (
-            <Select
-              size="large"
-              value={grade}
-              options={warehousesSlice.grades.map(
-                (item: any, _index: number) => ({
-                  key: item,
-                  value: item,
-                  label: item,
-                })
-              )}
-              onChange={(e: string) => {
-                setGrade(e);
-              }}
-            />
-          )}
+          {warehousesSlice.region != undefined &&
+            warehousesSlice.locality != undefined && (
+              <AppSelect
+                label="Сорт угля"
+                value={grade}
+                options={warehousesSlice.grades.map(
+                  (item: any, _index: number) => ({
+                    key: item,
+                    value: item,
+                    label: item,
+                  })
+                )}
+                onChange={(e: string) => {
+                  setGrade(e);
+                }}
+              />
+            )}
 
         <div className="filter__buttons">
           <Button className="">Очистить</Button>

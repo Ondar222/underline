@@ -18,13 +18,12 @@
 }
 
 .button {
-  margin: 20px 0px;
-  bottom: 15px;
   font-weight: bold;
-  width: 40%;
+  width: 100%;
   height: 50px;
   background: #C90000;;
   color: #ffff;
+  border-radius: 5px;
 }
 
 .button.red {

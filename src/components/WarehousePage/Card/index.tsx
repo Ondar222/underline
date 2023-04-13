@@ -1,35 +1,16 @@
 import { IWarehouse } from "@/models/IWarehouse";
-import { Card } from "antd";
+import { ClockCircleOutlined, ClockCircleTwoTone, EnvironmentOutlined, EnvironmentTwoTone } from "@ant-design/icons";
+import { Card, Space, Typography } from "antd";
 
 const WarehouseCard = (warehouse: IWarehouse) => {
   return (
-    <Card className="first__card">
+    <div className="warehouse__card">
       <div className="container__ipcard">
-        <div className="title__ipcard">
-          <h1 className="heading__ipcard">{warehouse.title}</h1>
-        </div>
-        <div>
-          <div className="first__line">
-            <svg
-              width="15"
-              height="20"
-              viewBox="0 0 15 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M7.5 1.5C4.20122 1.5 1.5 4.20478 1.5 7.54902C1.5 8.56026 1.83256 9.73882 2.41479 11.0003C2.99137 12.2496 3.77514 13.5 4.58772 14.6325C5.71656 16.2059 6.86398 17.5011 7.5 18.1864C8.13602 17.5011 9.28344 16.2059 10.4123 14.6325C11.2249 13.5 12.0086 12.2496 12.5852 11.0003C13.1674 9.73882 13.5 8.56026 13.5 7.54902C13.5 4.20478 10.7988 1.5 7.5 1.5ZM6.93095 19.7633C6.78797 19.6188 5.06123 17.8656 3.36896 15.507C2.5228 14.3276 1.68236 12.9929 1.05285 11.6289C0.424191 10.2668 0 8.86306 0 7.54902C0 3.38558 3.3636 0 7.5 0C11.6364 0 15 3.38558 15 7.54902C15 8.86306 14.5758 10.2668 13.9472 11.6289C13.3176 12.9929 12.4772 14.3276 11.631 15.507C9.93877 17.8656 8.21203 19.6188 8.06905 19.7633L8.06805 19.7644C7.91113 19.9207 7.70555 20 7.5 20C7.29445 20 7.08888 19.9207 6.93195 19.7644L6.93095 19.7633Z"
-                fill="#C90000"
-              />
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M7.50403 5C6.12693 5 5.00403 6.1229 5.00403 7.5C5.00403 8.8771 6.12693 10 7.50403 10C8.88113 10 10.004 8.8771 10.004 7.5C10.004 6.1229 8.88113 5 7.50403 5ZM3.50403 7.5C3.50403 5.29447 5.2985 3.5 7.50403 3.5C9.70955 3.5 11.504 5.29447 11.504 7.5C11.504 9.70553 9.70955 11.5 7.50403 11.5C5.2985 11.5 3.50403 9.70553 3.50403 7.5Z"
-                fill="#C90000"
-              />
-            </svg>
+
+        <Typography.Title level={2}>{warehouse.title}</Typography.Title>
+        <Space direction="vertical" size={27}>
+          <div className="warehouse__card__note">
+            <EnvironmentTwoTone twoToneColor="#c90000"/>
             <p>
               {warehouse.address.region.type + " "}
               {warehouse.address.region.name + ", "}
@@ -40,28 +21,11 @@ const WarehouseCard = (warehouse: IWarehouse) => {
               {"дом " + warehouse.address.street.number}
             </p>
           </div>
-          <div className="second__line">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M10.75 5.41666C10.75 5.00244 10.4142 4.66666 10 4.66666C9.58579 4.66666 9.25 5.00244 9.25 5.41666V9.99999C9.25 10.2361 9.36115 10.4583 9.55 10.6L12.8833 13.1C13.2147 13.3485 13.6848 13.2814 13.9333 12.95C14.1819 12.6186 14.1147 12.1485 13.7833 11.9L10.75 9.62499V5.41666Z"
-                fill="#C90000"
-              />
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M20 10C20 15.5228 15.5228 20 10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10ZM18.5 10C18.5 14.6944 14.6944 18.5 10 18.5C5.30558 18.5 1.5 14.6944 1.5 10C1.5 5.30558 5.30558 1.5 10 1.5C14.6944 1.5 18.5 5.30558 18.5 10Z"
-                fill="#C90000"
-              />
-            </svg>
+          <div className="warehouse__card__note">
+            <ClockCircleTwoTone twoToneColor="#c90000"/>
             <p>9:00 - 18:00 (сейчас работает)</p>
           </div>
-          <div className="third__line">
+          <div className="warehouse__card__note">
             <svg
               width="20"
               height="20"
@@ -77,9 +41,9 @@ const WarehouseCard = (warehouse: IWarehouse) => {
 
             <p>{warehouse.contacts.phones[0].phone}</p>
           </div>
-        </div>
+        </Space>
       </div>
-    </Card>
+    </div>
   );
 };
 

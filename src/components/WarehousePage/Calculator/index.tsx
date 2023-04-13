@@ -3,18 +3,22 @@ import AppSelect from "@/components/Form/Select";
 import { IDeliveryOptions } from "@/models/IDelivery";
 import { ICoalProduct } from "@/models/IProducts";
 import { IWarehouse } from "@/models/IWarehouse";
-import { Button, Card, Typography } from "antd";
+import { Button, Card, Space, Typography } from "antd";
 import { useRouter } from "next/router";
 
 const WarehouseCalculator = (warehouse: IWarehouse) => {
   const router = useRouter();
   return (
-    <Card className="third__card" style={{ width: "100%" }}>
-      <Typography.Title level={2}>
+    <div className="warehouse__calc" style={{ width: "100%" }}>
+      <Typography.Title level={2} className="warehouse__calc__heading">
         Калькулятор расчета стоимости угля
       </Typography.Title>
 
-      <div className="button__container__card">
+      <Space.Compact
+        block={true}
+        direction="vertical"
+        size="large"
+      >
         <AppInput placeholder="3" label="Необходимое количество в тоннах" />
         <AppSelect
           label="Сорт угля"
@@ -39,13 +43,14 @@ const WarehouseCalculator = (warehouse: IWarehouse) => {
             })
           )}
         />
-      </div>
+      </Space.Compact>
+
       <div className="filter__buttons">
-        <Button className="button button__clear" onClick={() => {}}>
+        <Button className="button primary" onClick={() => { }}>
           Очистить
         </Button>
         <Button
-          className="button button__calculate"
+          className="button red"
           onClick={() => {
             router.push("/calcresult");
           }}
@@ -54,7 +59,7 @@ const WarehouseCalculator = (warehouse: IWarehouse) => {
         </Button>
       </div>
       <CalculateNotes />
-    </Card>
+    </div>
   );
 };
 
@@ -62,8 +67,8 @@ export default WarehouseCalculator;
 
 const CalculateNotes = () => {
   return (
-    <div className="footer__container__paragraph">
-      <ul className="ul__footer__paragraph">
+    <div className="warehouse__calc__notes">
+      <ul>
         <li>Все цены указаны в российских рублях</li>
         <li>
           Цены на уголь указаны в рассчете на одну тонну(1000 килограммов)
