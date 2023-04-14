@@ -5,7 +5,6 @@ import Map from "@/components/Map";
 import warehousesSlice from "@/store/warehouses.slice";
 import { observer } from "mobx-react-lite";
 import "leaflet/dist/leaflet.css";
-import LastPost from "@/components/Post/LastPost";
 import { useEffect, useState } from "react";
 import WarehousesTable from "@/components/Tables/WarehousesTable";
 import LoadingSpinner from "@/components/LoadingSpinner";
@@ -15,14 +14,14 @@ export default observer(function Home() {
   const [isFetched, setIsFetched] = useState<boolean>(false);
 
   async function getData() {
-    setTimeout(async () => {
-      await warehousesSlice.setFilteredWarehouses(
+    setTimeout(() => {
+      warehousesSlice.setFilteredWarehouses(
         warehousesSlice.region,
         warehousesSlice.locality,
         "Каа-Хемский уголь"
       );
-      await setIsFetched(true);
-    }, 200);
+      setIsFetched(true);
+    }, 1000);
     // await warehousesSlice.getAllWarehouses();
   }
   useEffect(() => {
