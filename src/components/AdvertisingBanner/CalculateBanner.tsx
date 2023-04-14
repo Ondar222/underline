@@ -6,7 +6,7 @@ const CalculateBanner = () => {
   return (
     <div>
       <div className="header__name__calculate">
-        <h1 className="heading__calc">
+        <h1 className="heading__calc" >
           Воспользуйтесь онлайн калькулятором, чтобы узнать стоимость угля в
           вашем районе
         </h1>

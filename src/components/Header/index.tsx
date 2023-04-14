@@ -26,8 +26,8 @@ const MainHeader = () => {
         <Row className="header" align="middle">
           <Col span={17}>
             <Row align="middle">
-              <Avatar className="logo__header" src="/ugoll.svg" />
-              <Typography.Title level={4} className="header__title">
+              <Avatar className="header__logo" src="/ugol.svg" />
+              <Typography.Title className="header__name" level={4}>
                 Интерактивная карта угольных складов Республики Тыва
               </Typography.Title>
             </Row>

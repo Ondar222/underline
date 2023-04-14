@@ -13,40 +13,36 @@ const CalculatorPage = observer(() => {
         size={40}
         style={{ position: "relative", display: "flex", flexDirection: "row" }}
       >
-        <div className="first__column__table">
+        <Col span={24}>
           <Card className="first__card__table">
-            <div className="container__calculatorpage">
-              <Typography.Title level={2}>Ваш расчет</Typography.Title>
-              <div className="container__first__line__table">
-                <Space.Compact direction="horizontal" size="large" block={true}>
-                  <Image src="/location_icon.svg" />
-                  <Typography.Text>Каа-Хемский район</Typography.Text>
-                </Space.Compact>
-
-                <Space.Compact block={true} direction="vertical">
-                  <Row className="result__row">
-                    <Col span={12}>Сорт угля</Col>
-                    <Col span={12}>Балахтинский</Col>
-                  </Row>
-                  <Row className="result__row">
-                    <Col span={12}>Стоимость за 1 тонну</Col>
-                    <Col span={12}>2714 ₽</Col>
-                  </Row>
-                  <Row className="result__row">
-                    <Col span={12}>Необходимое количество</Col>
-                    <Col span={12}>3</Col>
-                  </Row>
-                  <Row className="result__row">
-                    <Col span={12}>Доставка</Col>
-                    <Col span={12}>500</Col>
-                  </Row>
-                  <Row className="result__row">
-                    <Col span={12}>Итого</Col>
-                    <Col span={12}>8614 ₽</Col>
-                  </Row>
-                </Space.Compact>
-              </div>
+            <Typography.Title level={2}>Ваш расчет</Typography.Title>
+            <div className="result__region">
+              <img src="/location_icon.svg" />
+              <Typography.Text>Каа-Хемский район</Typography.Text>
             </div>
+
+            <Space.Compact block={true} direction="vertical">
+              <Row className="result__row">
+                <Col span={12}>Сорт угля</Col>
+                <Col span={12}>Балахтинский</Col>
+              </Row>
+              <Row className="result__row">
+                <Col span={12}>Стоимость за 1 тонну</Col>
+                <Col span={12}>2714 ₽</Col>
+              </Row>
+              <Row className="result__row">
+                <Col span={12}>Необходимое количество</Col>
+                <Col span={12}>3</Col>
+              </Row>
+              <Row className="result__row">
+                <Col span={12}>Доставка</Col>
+                <Col span={12}>500</Col>
+              </Row>
+              <Row className="result__row total">
+                <Col span={12}>Итого</Col>
+                <Col span={12}>8614 ₽</Col>
+              </Row>
+            </Space.Compact>
           </Card>
 
           <Space
@@ -59,14 +55,15 @@ const CalculatorPage = observer(() => {
             </Button>
             <Button className="button white">Повторить</Button>
           </Space>
-        </div>
-
-        <LastPost
-          title="В Туве бесплатным углем обеспечат более 3200 семей"
-          image="/Rectangle 16.png"
-          date="5 марта 2023, 17:17"
-          size={"large"}
-        />
+        </Col>
+        <Col span={24}>
+          <LastPost
+            title="В Туве бесплатным углем обеспечат более 3200 семей"
+            image="/Rectangle 16.png"
+            date="5 марта 2023, 17:17"
+            size={"large"}
+          />
+        </Col>
       </Space>
     </>
   );
