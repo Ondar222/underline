@@ -6,7 +6,7 @@ import warehousesSlice from "@/store/warehouses.slice";
 import { observer } from "mobx-react-lite";
 import "leaflet/dist/leaflet.css";
 import LastPost from "@/components/Post/LastPost";
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import WarehousesTable from "@/components/Tables/WarehousesTable";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import AdvertisingBanner from "@/components/AdvertisingBanner";
@@ -15,17 +15,17 @@ export default observer(function Home() {
   const [isFetched, setIsFetched] = useState<boolean>(false);
 
   async function getData() {
-    setTimeout(() => {
-      warehousesSlice.setFilteredWarehouses(
+    setTimeout(async () => {
+      await warehousesSlice.setFilteredWarehouses(
         warehousesSlice.region,
         warehousesSlice.locality,
         "Каа-Хемский уголь"
       );
-      setIsFetched(true);
-    }, 1000);
+      await setIsFetched(true);
+    }, 200);
     // await warehousesSlice.getAllWarehouses();
   }
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (isFetched === false) {
       getData();
     }

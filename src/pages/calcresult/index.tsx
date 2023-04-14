@@ -1,4 +1,4 @@
-import { Card, Layout, Space } from "antd";
+import { Button, Card, Layout, Space, Typography, Image, Row, Col } from "antd";
 import CalculateTable from "@/components/CalculateTable";
 import LastPost from "@/components/Post/LastPost";
 import { observer } from "mobx-react-lite";
@@ -6,77 +6,69 @@ import { useEffect } from "react";
 import { ICalculateTable } from "@/components/CalculateTable/interface";
 
 const CalculatorPage = observer(() => {
-  const data = [
-    {
-      key: "1",
-      name: "Сорт угля",
-      address: "Балахтинский",
-    },
-    {
-      key: "2",
-      name: "Стоимость за 1 тонну ",
-      address: "2 714 ₽",
-    },
-    {
-      key: "3",
-      name: "Необходимое количество угля  ",
-
-      address: "3",
-    },
-    {
-      key: "4",
-      name: "Доставка  ",
-
-      address: "500 ₽",
-    },
-    {
-      key: "5",
-      name: "ИТОГО",
-
-      address: "8 642 ₽",
-    },
-  ];
-  useEffect(() => {}, []);
   return (
-    <Layout>
+    <>
       <Space
         direction="vertical"
-        size={16}
+        size={40}
         style={{ position: "relative", display: "flex", flexDirection: "row" }}
       >
         <div className="first__column__table">
           <Card className="first__card__table">
             <div className="container__calculatorpage">
-              <div className="title__calculatorpage">
-                <h1 className="heading__calculatorpage">Ваш расчет</h1>
-              </div>
+              <Typography.Title level={2}>Ваш расчет</Typography.Title>
               <div className="container__first__line__table">
-                <div className="first__line__table">
-                  <img src="/location_icon.svg" />
-                  <p>Каа-Хемский район</p>
-                </div>
-                <div className="table__p">
-                  <CalculateTable data={data} />
-                </div>
+                <Space.Compact direction="horizontal" size="large" block={true}>
+                  <Image src="/location_icon.svg" />
+                  <Typography.Text>Каа-Хемский район</Typography.Text>
+                </Space.Compact>
+
+                <Space.Compact block={true} direction="vertical">
+                  <Row className="result__row">
+                    <Col span={12}>Сорт угля</Col>
+                    <Col span={12}>Балахтинский</Col>
+                  </Row>
+                  <Row className="result__row">
+                    <Col span={12}>Стоимость за 1 тонну</Col>
+                    <Col span={12}>2714 ₽</Col>
+                  </Row>
+                  <Row className="result__row">
+                    <Col span={12}>Необходимое количество</Col>
+                    <Col span={12}>3</Col>
+                  </Row>
+                  <Row className="result__row">
+                    <Col span={12}>Доставка</Col>
+                    <Col span={12}>500</Col>
+                  </Row>
+                  <Row className="result__row">
+                    <Col span={12}>Итого</Col>
+                    <Col span={12}>8614 ₽</Col>
+                  </Row>
+                </Space.Compact>
               </div>
             </div>
           </Card>
 
-          <div className="button__container__cacl__table">
-            <button className="button__calculate__table">
+          <Space
+            direction="horizontal"
+            size="large"
+            className="filter__buttons"
+          >
+            <Button className="button red">
               Найти угольный склад в моем районе
-            </button>
-            <button className="button__clear__table">Повторить</button>
-          </div>
+            </Button>
+            <Button className="button white">Повторить</Button>
+          </Space>
         </div>
 
         <LastPost
           title="В Туве бесплатным углем обеспечат более 3200 семей"
           image="/Rectangle 16.png"
           date="5 марта 2023, 17:17"
+          size={"large"}
         />
       </Space>
-    </Layout>
+    </>
   );
 });
 

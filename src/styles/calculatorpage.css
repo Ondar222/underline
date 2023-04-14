@@ -77,9 +77,9 @@
   background: #010101;
   bottom: 0;
   color: #ffffff;
-  width: 367px;
+  width: 100%;
+  max-width: 367px;
   height: 150px;
-  margin: 20px 20px;
   cursor: pointer;
 }
 
@@ -97,4 +97,10 @@
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
+}
+
+.result__row {
+  width: 100%;
+  padding: 11px 0;
+  border-bottom: 2px solid var(--black);
 }

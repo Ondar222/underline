@@ -77,24 +77,6 @@
   border: solid;
 }
 
-.button__clear {
-  width: 30%;
-  height: 50px;
-  font-weight: 400;
-  font-size: 16px;
-  color: #000000;
-  background: #e9e4e4;
-}
-
-.button__calculate {
-  width: 30%;
-  height: 50px;
-  font-weight: 400;
-  font-size: 16px;
-  color: #ffffff;
-  background: #c90000;
-}
-
 .footer__container__paragraph {
   width: 100%;
 }

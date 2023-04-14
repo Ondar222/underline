@@ -15,10 +15,10 @@ const Footer = () => {
             </p>
           </div>
           <div className="second__info__paragraph">
-            <p>
-              Сайт разработан
-            </p>
-              <a className="RT_tcit" href="#">КП РТ "ЦИТ РТ"</a>
+            <p>Сайт разработан</p>
+            <a className="RT_tcit" href="#">
+              КП РТ "ЦИТ РТ"
+            </a>
           </div>
         </div>
       </Layout>

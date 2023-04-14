@@ -1,7 +1,9 @@
+import { Spin } from "antd";
+
 const LoadingSpinner = () => {
   return (
     <div className="loading">
-      <div className="loading__spinner">loading...</div>
+      <Spin/>
     </div>
   );
 };

@@ -1,10 +1,9 @@
 import "@/styles/globals.scss";
-import "@/styles/footer.css";
+import "@/styles/footer.scss";
 import "@/styles/postcard.css";
 import "@/styles/news.css";
 import "@/styles/proect.css";
 import "@/styles/ipcard.css";
-import "@/styles/table.css";
 import "@/styles/calculatorpage.css";
 import "@/styles/pagefooter.css";
 import "@/styles/price.css";

@@ -15,6 +15,7 @@ const AdvertisingBanner = () => {
               title="В Туве бесплатным углем обеспечат более 320 семей"
               image="/Rectangle_9.png"
               date="5 марта 2023, 17:17"
+              size="large"
             />
           </Col>
         </Row>

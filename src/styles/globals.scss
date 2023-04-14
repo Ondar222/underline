@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('/src/styles/warehouse_page.scss');
+@import url("/src/styles/warehouse_page.scss");
+@import url("/src/styles/footer.scss");
 
 :root {
   --white: #fff;
@@ -56,25 +57,6 @@ body {
   margin-top: 33px;
 }
 
-.button {
-  width: 100%;
-  height: 50px;
-  border-radius: 5px !important;
-  font-weight: 400 !important;
-  font-size: 16px;
-  text-align: center;
-}
-
-.button.red {
-  background-color: #c90000;
-  color: white;
-}
-
-.button.primary {
-  background-color: #e9e4e4;
-  color: black;
-}
-
 p {
   margin: 0;
 }
@@ -96,13 +78,13 @@ p {
   background-color: #e9e4e4;
 }
 
-.header__menu>li,
+.header__menu > li,
 li.ant-menu-item-selected,
 li.ant-menu-item-selected:hover {
   /* color: white !important; */
 }
 
-.header__menu>.ant-menu-item-selected::after,
+.header__menu > .ant-menu-item-selected::after,
 .ant-menu-item-active::after,
 .ant-menu-item:hover {
   border-bottom-color: var(--red) !important;
@@ -140,7 +122,6 @@ li.ant-menu-item-selected:hover {
   object-fit: cover;
 }
 
-
 .warehouses__table {
   margin-top: 30px;
 }
@@ -156,12 +137,12 @@ li.ant-menu-item-selected:hover {
   margin-top: 30px;
 }
 
-.advertising__banner {}
+.advertising__banner {
+}
 
 .calculate__banner__button {
   background-color: #c90000;
 }
-
 
 .app-form {
   margin-top: 21px;
